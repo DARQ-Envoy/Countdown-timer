@@ -1,0 +1,312 @@
+@import 'utilities';
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background: linear-gradient(hsl(235, 16%, 14%), hsl(268, 22%, 13%) , hsl(271, 23%, 18%) );
+    height: 100vh;
+    // margin-top: 0;
+    padding-top: 150px;
+    overflow-y: hidden;
+    position: relative;
+    scroll-behavior: smooth; 
+}
+
+#root{
+    height: 100%;
+}
+
+main{
+    background-image: url("./Images/bg-stars.svg");
+    background-size: 100% 100%;
+    color: white;
+    font-family: sans-serif;
+}
+
+header{
+    text-align: center;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    padding: 20px;
+    margin: 30px;
+    color: rgb(238, 238, 238);
+    letter-spacing: 2px;
+}
+
+.time{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.time > div{
+    padding: 5px;
+    text-align: center;
+    min-width: 80px;
+}
+
+.time > div> .display{
+    font-size: 1.8rem;
+    font-weight: 700;
+    color:  hsl(345, 95%, 68%);  
+    background-color:hsl(236, 21%, 26%);
+    padding: 15px;
+    border-radius: 3px;
+    margin: 10px 0;
+    position: relative;
+}
+
+.time > div> .display{
+    box-shadow: 0px 5px 3px rgb(5, 5, 5);
+    transform: rotatey(20deg);
+    .half{
+        position: absolute;
+        top: 0;
+        background-color:hsl(236, 21%, 26%) ;
+        display: flex;
+        align-items: center;
+        height: 50%;
+        left: 0%;
+        width: 100%;
+        overflow-y: hidden;
+        rotate:x 360deg ;
+        translate: 0 0%;
+        transition: all 1s linear;
+        span{
+            display: block;
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            justify-content: center;
+            height: 200%;
+            width: 100%;
+            rotate: x 0deg;
+            transition: rotate 1s linear ;
+        }
+        @keyframes flip {
+            from{
+            rotate: x 0deg;
+            }
+            to{
+            rotate: x -180deg; 
+            }
+        }
+        .s-pan{
+            rotate: x -180deg; 
+            }
+    }
+ 
+    
+    .n{
+        animation: turn 0.7s linear normal infinite;
+    }
+}
+@keyframes turn {
+    0%{
+        rotate: x 360deg;
+        translate: 0 0%;
+        opacity: 1;
+
+    }
+    50%{
+        rotate: x 270deg;
+        translate: 0 50%;
+        opacity: 1;
+
+    }
+
+    100%{
+        rotate: x 180deg;
+        translate: 0 100%;
+        opacity: 1;
+        display: none;
+
+    }
+
+    
+}
+
+.time > div> .display::before{
+content: "";
+width: 4px;
+height: 4px;
+background-color: hsl(234, 17%, 12%);
+display: block;
+position: absolute;
+top: 50%;
+left: 0;
+border-radius: 3px;
+}
+
+.time > div> .display::after{
+    content: "";
+    width: 4px;
+    height: 4px;
+    background-color: hsl(234, 17%, 12%);
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    border-radius: 3px;
+    }
+
+.time > div> small{
+    color:hsl(237, 18%, 59%);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+
+footer{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    height: 30%;
+    background-image: url('./Images/pattern-hills.svg');
+    background-repeat: no-repeat;
+    background-size: 150% 100% ;
+    background-position: bottom center;
+    img{
+        height: 35px;
+        width: 35px;
+    }
+}
+.set{
+    display: block;
+    font-size: 2rem;
+    color: rgb(227, 227, 227);
+    padding: 10px 15px;
+    background-color:hsl(238, 22%, 23%);
+    font-weight: 600;
+    box-shadow: 0px 5px 3px rgb(5, 5, 5);
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    margin: 30px auto 5px;
+    letter-spacing: 2px;
+    outline: none;
+    border: none;
+    animation: flash 10s linear infinite;
+}
+ @keyframes flash{
+    0%{
+        opacity: 0.2;
+    }
+    50%{
+        opacity: 0.6;
+    }
+    100%{
+        opacity: 0.2;
+    }
+ }
+ .setting{
+    width: 93%;
+    max-width: 400px;
+    margin: 30px auto;
+    height: 330px;
+    padding: 10px;
+    background-color: hsl(236, 21%, 26%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: 10;
+    border-radius: 10px;
+    // display: none;
+ }
+ .set-values{
+    height: 81%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    overflow-y: hidden;
+    &::-webkit-scrollbar{
+        display: none;
+    }
+ }
+ .cont{
+    height: 100%;
+ }
+ ul{
+    list-style: none;
+    padding: 0px 10px 10px;
+    margin-top: 10px;
+    height: 78%;
+    overflow-y: scroll;
+    &::-webkit-scrollbar{
+        display: none;
+        }
+    li{
+        padding: 15px 15px;
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: 800;
+        display: block;
+        background-color: hsl(235, 22%, 33%);
+        box-shadow: 0px 5px 3px rgb(5, 5, 5);
+        min-width: 58px;
+    &:first-child{
+        margin-top: 2px;
+    }
+}
+ }
+ .smooth{
+    scroll-behavior: smooth;
+ }
+ .m-space{
+    margin: 10px 0;
+ }
+ .b-space{
+    margin-bottom: 10px;
+ }
+ .action{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+    padding: 5px 20px;
+    button{
+        padding: 12px 30px;
+        border-radius: 10px;
+        border: none;
+        font-weight: bold;
+        font-size: 1rem;
+        outline: none;
+        color: white;
+        cursor: pointer;
+    }
+ }
+ #done{
+    background-color: rgb(15, 255, 15);
+ }
+ #cancel{
+    background-color: #2f2f2f;
+ }
+ .u-head{
+    color: rgb(186, 186, 186);
+    text-align: center;
+    margin-top: 7px;
+    padding: 10px 5px 2px;
+ }
+ .hide{
+    display: none;
+ }
+ .block{
+    display: block;
+ }
+ .picked{
+    color: #0fff0f;
+ }

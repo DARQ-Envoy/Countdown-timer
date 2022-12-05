@@ -989,3 +989,24 @@ ul li:first-child {
 .picked {
   color: #0fff0f;
 }
+
+@media screen and ((max-width: 700px)) {
+  body {
+    padding-top: 80px;
+  }
+  header {
+    margin: 20px 30px 10px;
+  }
+  .set-values {
+    width: 100%;
+  }
+  .cont {
+    width: 25%;
+  }
+  main {
+    height: 70%;
+  }
+  footer {
+    height: 30%;
+  }
+}

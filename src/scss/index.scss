@@ -311,7 +311,7 @@ footer{
 
  @include media((max-width:700px)){
     body{
-        padding-top: 80px;
+        padding-top: 50px;
         overflow: unset;
     }
     #root{
@@ -332,10 +332,54 @@ footer{
         width: 100%;
     }
     .time{
-        width: 100%;
-        // width: 95%;
+        width: 90%;
+    }
+    .time{
+        div{
+            min-width: unset;
+        }
+
     }
     footer{
         height: 30%;
+    }
+ }
+ @include media((max-width:550px)){
+.time{
+    div{
+        .display{
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+    }
+}
+ }
+
+ @include media((max-width:300px)){
+    header{
+        margin: 20px 0;
+        padding: 20px 5px;
+    }
+    body{
+        padding: 0;
+    }
+    main{
+        height: unset;
+    }
+    footer{
+        height: unset;
+        min-height: 100px;
+    }
+    .time{
+        flex-direction: column;
+        div{
+            .display{
+                font-size: 1.8rem;
+                font-weight: 700;
+            }
+        }
+    }
+    .set{
+        width: 93%;
     }
  }
